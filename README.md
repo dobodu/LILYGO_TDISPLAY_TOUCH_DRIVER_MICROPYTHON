@@ -17,12 +17,19 @@ object CST8X can be called
 where
 
   i2cbus is mandatory !
+  
   adress is optionnal, the library will look for the chip on the i2c bus
+  
   int_pin to handle interruptions
+  
   int_handler to handle a subroutine in your main program
+  
   width = screen width
+  
   height = screen height
+  
   xmin/max and ymin/max are value you might adjust, however the library is autofocusing after every touch
+  
   debug=True if you wan't console outputs.
 
   
