@@ -1,8 +1,9 @@
-# LILIGO_TDISPLAY_TOUCH_DRIVER_MICROPYTHON
+# LILYGO_TDISPLAY_TOUCH_DRIVER_MICROPYTHON
 Micropython Touch driver library for Lilygo T-Display ESP32-S3 AMOLED
 
 
 This library allow to use the Lilygo ESP32 S3 T-Display Amoled Touch capacities with Micropython
+
 
 object CST8X can be called 
 
@@ -11,6 +12,7 @@ object CST8X can be called
   or
 
   cst = cst8x.CST8X(i2c=i2cbus, adress = Chip adress, int_pin=TS_INT, int_handler = TS_pressed, witdh, height, xmin, xmax, ymin, ymax, debug=False)
+
 
 where
 
