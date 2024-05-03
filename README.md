@@ -1,36 +1,47 @@
-LILYGO T-DISPLAY TOUCH DRIVER MICROPYTHON
+**LILYGO T-DISPLAY TOUCH DRIVER MICROPYTHON**
 
 Micropython Touch driver library for Lilygo T-Display ESP32-S3 AMOLED
 
 
-This library allow to use the Lilygo ESP32 S3 T-Display Amoled Touch capacities with Micropython
+------------
+
+Import the library and create the touch screen object
+
+The easy way :
+
+	import cst8x
+	cst = cst8x.CST8X(i2c)
+
+or the complete way
+
+	import cst8x
+	cst = cst8x.CST8X(i2c, adress, int_pin, int_handler, witdh, height, xmin, xmax, ymin, ymax, debug)
+
+all parameter can be written like
+
+	i2c = i2c bus you must set up before
+	adress = adress of the chip on I2C
+	int_pin = interruption GPIO pin
+	int_handler = function handler when interruption pin raise up
+	witdh, height = dimension of the display to get absolute values
+	xmin, xmax, ymin, ymax = raw data min and max values for touch screen
+	debug = if you want to have console outputs
 
 
-object CST8X can be called 
+------------
 
-  cst = cst8x.CST8X(i2c=i2cbus) the easy way
+Mandatory parameters :
 
-  or
+- i2cbus is the only mandatory parameter
 
-  cst = cst8x.CST8X(i2c=i2cbus, adress = Chip adress, int_pin=TS_INT, int_handler = TS_pressed, witdh, height, xmin, xmax, ymin, ymax, debug=False)
+Optional parameters
 
+- adress : the library will look for the chip on the i2c bus
+- int_pin : if no pin, no interruption
+- int_handler : if no handler : no subroutine will be called on interruption
+- width and height : defaut is 536x240
+- xmin/max and ymin/max
 
-where
+Behaviour
 
-  i2cbus is mandatory !
-  
-  adress is optionnal, the library will look for the chip on the i2c bus
-  
-  int_pin to handle interruptions
-  
-  int_handler to handle a subroutine in your main program
-  
-  width = screen width
-  
-  height = screen height
-  
-  xmin/max and ymin/max are value you might adjust, however the library is autofocusing after every touch
-  
-  debug=True if you wan't console outputs.
-
-  
+- Library will autofocus min/max x and y values on every touch event.
